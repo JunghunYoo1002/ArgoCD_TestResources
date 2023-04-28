@@ -40,4 +40,4 @@ spec:
     replicas: 1
     selector:
       matchLabels:
-        app: {{ .values.name }}
+        app: {{ .Values.name }}
