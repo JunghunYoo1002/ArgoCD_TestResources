@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: hello-kubernetes
 spec:
@@ -21,3 +21,9 @@ spec:
         ports:
         - name: http
           containerPort: 8080
+  strategy:
+    blueGreen:
+      activeService: hello-kubernetes-active
+      previewService: hello-kubernetes-preview
+      autoPromotionEnabled: false
+      # previewReplicaCount: 1
