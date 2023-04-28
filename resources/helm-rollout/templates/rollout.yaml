@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name }}
-        image: argoproj/rollouts-demo:{{ .Values.version }}
+        #image: argoproj/rollouts-demo:{{ .Values.version }}
+        image: nginxdemos/hello:latest
         ports:
         - containerPort: 8080
         readinessProbe:
